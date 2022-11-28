@@ -26,9 +26,9 @@ public class CandidatoDAO implements CRUDCandidato{
     @Override
     public List listarRegion(String region) {
         ArrayList<detalleCandidato>list=new ArrayList<>();
-        String sql="SELECT simboloPPolitico, nomPPolitico, idCandidato, nombreRegion FROM `detCandidato` "
-                + "INNER JOIN `ppolitico` ON detCandidato.idPPolitico=ppolitico.idPpolitico "
-                + "INNER JOIN `region` ON detCandidato.idRegion=region.idRegion "
+        String sql="SELECT simboloPPolitico, nomPPolitico, idCandidato, nombreRegion FROM `detcandidato` "
+                + "INNER JOIN `ppolitico` ON detcandidato.idPPolitico=ppolitico.idPpolitico "
+                + "INNER JOIN `region` ON detcandidato.idRegion=region.idRegion "
                 + "WHERE nombreRegion='"+region+"' AND idProvincia='2'";
         try {
             con=cn.getConnection();
@@ -53,10 +53,10 @@ public class CandidatoDAO implements CRUDCandidato{
     @Override
     public List listarProvincia(String provincia) {
         ArrayList<detalleCandidato>list=new ArrayList<>();
-        String sql="SELECT simboloPPolitico, nomPPolitico, idCandidato, nombreProvincia FROM `detCandidato` "
-                + "INNER JOIN `ppolitico` ON detCandidato.idPPolitico=ppolitico.idPpolitico "
-                + "INNER JOIN `provincia` ON detCandidato.idProvincia=provincia.idProvincia "
-                + "WHERE nombreProvincia='"+provincia+"' AND detCandidato.idProvincia='1'";
+        String sql="SELECT simboloPPolitico, nomPPolitico, idCandidato, nombreProvincia FROM `detcandidato` "
+                + "INNER JOIN `ppolitico` ON detcandidato.idPPolitico=ppolitico.idPpolitico "
+                + "INNER JOIN `provincia` ON detcandidato.idProvincia=provincia.idProvincia "
+                + "WHERE nombreProvincia='"+provincia+"' AND detcandidato.idProvincia='1'";
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -80,9 +80,9 @@ public class CandidatoDAO implements CRUDCandidato{
     @Override
     public List listarDistrito(String distrito) {
         ArrayList<detalleCandidato>list=new ArrayList<>();
-        String sql="SELECT simboloPPolitico, nomPPolitico, idCandidato, nombreDistrito FROM `detCandidato` "
-                + "INNER JOIN `ppolitico` ON detCandidato.idPPolitico=ppolitico.idPpolitico "
-                + "INNER JOIN `distrito` ON detCandidato.idDistrito=distrito.idDistrito "
+        String sql="SELECT simboloPPolitico, nomPPolitico, idCandidato, nombreDistrito FROM `detcandidato` "
+                + "INNER JOIN `ppolitico` ON detcandidato.idPPolitico=ppolitico.idPpolitico "
+                + "INNER JOIN `distrito` ON detcandidato.idDistrito=distrito.idDistrito "
                 + "WHERE nombreDistrito='"+distrito+"'";
         try {
             con=cn.getConnection();
